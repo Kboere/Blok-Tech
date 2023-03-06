@@ -1,4 +1,22 @@
-<%- include('../partials/header'); %>
-<a href="/" class="link">Go Back</a>
-<p>Welcome <%=username%>, You are logged in.</p>
-<%- include('../partials/footer'); %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+    <header>
+      <%- include('../partials/header'); %>
+    </header>
+    
+    <main>
+        <a href="/" class="link">Go Back</a><br>
+        <p>Welcome <%=username%>, You are logged in.</p>
+    </main>
+    
+    <footer>
+      <%- include('../partials/footer'); %>
+    </footer>
+    
+    </body>
+    </html>

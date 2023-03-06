@@ -1,49 +1,68 @@
+require('dotenv').config()
+const { MongoClient } = require('mongodb')
 const express = require('express')
-const bodyParser = require('body-parser')
-const path = require("path")
 const app = express()
+const bodyParser = require('body-parser')
 const port = 3000
 
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri = "mongodb+srv://KevinBoere:K3v1n@701@cluster0.itavqik.mongodb.net/?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
+// Replace the uri string with your MongoDB deployment's connection string.
+const uri = process.env.MONGODB_URI
+const client = new MongoClient(uri)
+const dbName = 'test' 
 
-app.use(bodyParser.urlencoded({ extended: false }))
-
-// set the view engine to ejs
-app.set('view engine', 'ejs');
-
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(__dirname + '/static'))
 
-// use res.render to load up an ejs view file
+// set the view engine to ejs
+app.set('view engine', 'ejs')
 
+// use res.render to load up an ejs view file
 // index page
 app.get('/', function(req, res) {
   res.render('pages/index')
 })
 
-// about page
+// zoekresultaten page
 app.get('/zoekresultaat', function(req, res) {
   res.render('pages/zoekresultaat')
 })
 
-app.post("/login", (req, res) => {
-  const { name, password } = req.body;
+app.post('/zoekresultaat', (req, res) => {
+  console.log(req.body)
+                      
+ async function run() {
+    try {
+         await client.connect() 
+         console.log('Connected correctly to server') 
+         const db = client.db(dbName) 
+         // Use the collection'form'
+         const col = db.collection('form') 
 
-  if (name === "admin" && password === "admin") {
-    res.render("pages/succes", {
-      username: name,
-    });
-  } else {
-    res.render("pages/failure");
-  }
-});
+        // Construct a document                                                                                                                                                              
+        let personDocument = {
+         'Antwoord op vraag 1': req.body.vraag1,
+         'Antwoord op vraag 2': req.body.vraag2,
+         'Antwoord op vraag 3': req.body.vraag3,
+         'Antwoord op vraag 4': req.body.vraag4,
+         'extra aanvulling van vraag 4': req.body.recommend
+        }
+      // Insert a single document, wait for promise so we can read it back
+      const p = await col.insertOne(personDocument) 
 
+        } catch (err) {
+         console.log(err.stack) 
+     }
+ 
+     finally {
+        await client.close() 
+    }
+}
+run().catch(console.dir) 
+
+res.render('pages/zoekresultaat')
+
+}) 
 
 app.use(function (req, res, next) {
   // YOU CAN CREATE A CUSTOM EJS FILE TO SHOW CUSTOM ERROR MESSAGE
