@@ -9,6 +9,10 @@
     --intenseBlue: #46b3e6;
   }
 body {
+  background-image: url(../img/bg-cars.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
 	font-family: 'Montserrat', sans-serif;
 	line-height: 1.6;
 	margin: 0;
@@ -97,7 +101,7 @@ main{
 }
 
 section.form-voorkeur {
-    width: 80%;
+    width: 100%;
     margin-right: 30px;
 }
 
@@ -288,7 +292,9 @@ aside.side-menu h3{
   .survey {
     display: flex;
     flex-direction: column;
-  }
+    margin: auto;
+    width: 80%;
+}
   
   .survey__panel {
     display: none;
