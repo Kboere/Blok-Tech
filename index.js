@@ -38,28 +38,28 @@ const user = {
 
 // zoekresultaten page
 app.get('/zoekresultaat', function(req, res) {
-  res.render('pages/zoekresultaat',{ articles: posts})
+  res.render('pages/zoekresultaat')
 
-//   async function run() {
-//     try {
-//          await client.connect() 
-//          console.log('Connected correctly to server') 
-//          const db = client.db(dbName) 
-//          // Use the collection'form'
-//          const col = db.collection('events') 
+  async function run() {
+    try {
+         await client.connect() 
+         console.log('Connected correctly to server') 
+         const db = client.db(dbName) 
+         // Use the collection'events'
+         const col = db.collection('events') 
 
-//          const cursor = col.find()
-//          // print a message if no documents were found
-//          if ((await col.countDocuments()) === 0) {
-//            console.log("No documents found!")
-//          }
-//          // replace console.dir with your callback to access individual elements
-//          await cursor.forEach(console.dir)
-//        } finally {
-//          await client.close();
-//        }
-// }
-// run().catch(console.dir)
+         const cursor = col.find()
+         // print a message if no documents were found
+         if ((await col.countDocuments()) === 0) {
+           console.log("No documents found!")
+         }
+         // replace console.dir with your callback to access individual elements
+         await cursor.forEach(console.dir)
+       } finally {
+         await client.close();
+       }
+}
+run().catch(console.dir)
 
 })
 
