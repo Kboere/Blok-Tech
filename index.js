@@ -25,7 +25,6 @@ app.get('/', function(req, res) {
   res.render('pages/index')
 })
 
-
 const posts = [
   {title: 'Title 1', body: 'Body 1' },
   {title: 'Title 2', body: 'Body 2' },
@@ -100,7 +99,6 @@ app.post('/zoekresultaat', (req, res) => {
 run().catch(console.dir) 
 res.render('pages/zoekresultaat')
 }) 
-
 app.use(function (req, res, next) {
   // YOU CAN CREATE A CUSTOM EJS FILE TO SHOW CUSTOM ERROR MESSAGE
     res.status(404).render('pages/404page')

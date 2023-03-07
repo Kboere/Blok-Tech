@@ -101,7 +101,11 @@ main{
 }
 
 section.form-voorkeur {
+<<<<<<< HEAD
     width: 100%;
+=======
+    width: 80%;
+>>>>>>> 79fe615030cb39af58c4e5877ff2eba492d0d258
     margin-right: 30px;
 }
 
@@ -292,9 +296,13 @@ aside.side-menu h3{
   .survey {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     margin: auto;
     width: 80%;
 }
+=======
+  }
+>>>>>>> 79fe615030cb39af58c4e5877ff2eba492d0d258
   
   .survey__panel {
     display: none;
