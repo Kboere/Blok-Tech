@@ -8,35 +8,53 @@
     --lightBlue: rgba(0, 64, 128, 0.2);
     --intenseBlue: #46b3e6;
   }
+
 body {
-  background-image: url(../img/bg-cars.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom;
+  position: relative;
 	font-family: 'Montserrat', sans-serif;
 	line-height: 1.6;
 	margin: 0;
 	min-height: 100vh;
 }
+body:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background-image: url(../img/bg2.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+}
+
+header {
+  background: rgba(242,242,242,0.3);
+  backdrop-filter: blur(10px);
+}
+
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+h1{
+  color: #fff;
+}
 
 h2,
 h3,
 a {
-	color: #34495e;
+	color: #000;
 }
 
 a {
 	text-decoration: none;
-}
-
-header {
-    background: #f2f2f2;
 }
 
 nav{
@@ -66,38 +84,12 @@ nav ul a {
 }
 
 nav ul a {
-	color: #34495e;
-	font-size: .99em;
+	color: #000;
+	font-size: 1em;
 }
 
 nav ul a:hover {
 	color: #718daa;
-}
-
-
-
-.header {
-	padding-top: .5em;
-	padding-bottom: .5em;
-	border: 1px solid #a2a2a2;
-	background-color: #f4f4f4;
-	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-}
-
-
-main{
-    max-width: 1200px;
-    padding: 0px 10px;
-    margin: auto;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: baseline;
-    justify-content: space-between;
 }
 
 section.form-voorkeur {
@@ -105,10 +97,24 @@ section.form-voorkeur {
     margin-right: 30px;
 }
 
+main{
+  max-width: 1200px;
+  padding: 0px 10px;
+  margin: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+/* ================================= 
+  Stijling events page
+==================================== */
+
 aside.side-menu {
+  width: 25%;
     background-color: #f2f2f2;
     padding: 20px;
-    margin-top: 40px;
 }
 
 aside.side-menu h3{
@@ -116,35 +122,95 @@ aside.side-menu h3{
 }
 
 
+main.events {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: unset;
+}
 
+main.events h1{
+  width: 100%;
+}
+
+.event-found {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "foto Data"; 
+  width: 70%;
+  background-color: rgba(242,242,242,0.4);
+  backdrop-filter: blur(10px);
+  color: #000;
+  border-radius: 10px;
+}
+.foto { grid-area: foto; width: 60%; }
+.data { 
+  grid-area: Data; 
+  width: 130%; 
+  margin-left: -30%; 
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.event-found img {
+  width: 100%;
+  margin: auto;
+  object-fit: fill;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.event-found .data h2{
+width: 100%;
+}
+
+.event-found .data p{
+  width: calc(50% - 10px);
+  margin: 0;
+  }
+.event-found p:first-of-type::before{
+content: "Soort:";
+font-weight: 700;
+}
+
+.event-found p:nth-of-type(2)::before{
+  content: "Locatie:";
+  font-weight: 700;
+}
+
+.event-found p:nth-of-type(3)::before{
+  content: "Datum:";
+  font-weight: 700;
+}
+
+.event-found p:nth-of-type(4)::before{
+  content: "Reistijd:";
+  font-weight: 700;
+}
+.event-found p:nth-of-type(4)::after{
+  content: "km";
+}
+
+.event-found p:nth-of-type(5)::before{
+  content: "Tijd:";
+  font-weight: 700;
+}
+
+.event-found p:last-of-type::before{
+  content: "Grootte:";
+  font-weight: 700;
+}.event-found p:last-of-type::after{
+  content: "Auto's";
+}
 
 
 /* ================================= 
-  Media Queries
+  Styling formulier
 ==================================== */
-
-@media (min-width: 1025px) {
-	.header {
-		flex-direction: row;
-		justify-content: space-between;
-	}
-
-}
-
-@media (min-width: 769px) {
-	.header,
-	nav ul {
-		display: flex;
-	}
-	.header {
-		flex-direction: column;
-		align-items: center;
-		width: 80%;
-		margin: 0 auto;
-		max-width: 1150px;
-	}
-
-}
 
   :focus {
     outline: 2px solid #f8dc88;
@@ -294,6 +360,10 @@ aside.side-menu h3{
     flex-direction: column;
     margin: auto;
     width: 80%;
+    background-color: RGBA(255,255,255,0.4);
+    padding: 50px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
 }
   
   .survey__panel {
@@ -560,6 +630,34 @@ aside.side-menu h3{
     width: 1px;
   }
 
-  footer{
-    text-align: center;
-  }
+  footer {
+    position: fixed;
+    bottom: 0;
+}
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (min-width: 1025px) {
+	.header {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+}
+
+@media (min-width: 769px) {
+	.header,
+	nav ul {
+		display: flex;
+	}
+	.header {
+		flex-direction: column;
+		align-items: center;
+		width: 80%;
+		margin: 0 auto;
+		max-width: 1150px;
+	}
+
+}

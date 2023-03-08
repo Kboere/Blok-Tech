@@ -30,18 +30,21 @@ app.get('/', function (req, res) {
 })
 
 // zoekresultaten page
-app.get('/zoekresultaat', async (req, res) => {
-  try {
-    await client.connect()
-    console.log('Connected correctly to server')
+// app.get('/zoekresultaat', async (req, res) => {
+//   try {
+//     await client.connect()
+//     console.log('Connected correctly to server')
 
-    const data = await cole.find({ reistijd: '53km' })
-    console.log(data)
-    res.render('pages/zoekresultaat', { data: data })
-  } catch (err) {
-    console.log(err.stack)
-  }
-})
+//     const data = await cole.find()
+//     // console.log(data)
+//     // iterate code goes here
+//     await data.forEach(console.log)
+
+//     // res.render('pages/zoekresultaat', { data })
+//   } catch (err) {
+//     console.log(err.stack)
+//   }
+// })
 
 app.post('/zoekresultaat', async (req, res) => {
   try {
@@ -51,25 +54,37 @@ app.post('/zoekresultaat', async (req, res) => {
     // Construct a document
     const personDocument = {
       AntwoordVraag1: req.body.vraag1,
-      AntwoordVraag2: req.body.vraag2,
+      AntwoordVraag2: parseInt(req.body.vraag2),
       AntwoordVraag3: req.body.vraag3,
       AntwoordVraag4: req.body.vraag4
     }
     // Insert a single document, wait for promise so we can read it back
     await colf.insertOne(personDocument)
 
-    const data = await cole.find({ reistijd: '53km' })
-    res.render('pages/zoekresultaat', { data: data })
+    const data = await cole.findOne({ locatie: 'Europaplein 24, 1078 GZ Amsterdam', reistijd: { $gt: 50 }, datum: '23 maart 2023', tijd: '14:00 tot 18:00', foto: '../img/jdmcar.png', soort: 'JDM cars', grootte: { $gt: 60 }, eventnaam: { $ne: 'cars' } })
+    res.render('pages/zoekresultaat', { data })
 
     console.log(personDocument)
-    console.log(data)
   } catch (err) {
     console.log(err.stack)
   } finally {
     await client.close()
   }
-  // res.render('pages/zoekresultaat')
 })
+
+// app.post('/aanmelden', async (req, res) => {
+//   try {
+//     await client.connect()
+
+//     await cole.findOneAndUpdate({ grootte: { $inc: 1 } })
+//     const data = await cole.findOne({ grootte: '' })
+//     res.render('pages/zoekresultaat', { data })
+//   } catch (err) {
+//     console.log(err.stack)
+//   } finally {
+//     await client.close()
+//   }
+// })
 
 app.use(function (req, res, next) {
   res.status(404).render('pages/404page')
