@@ -55,7 +55,7 @@ app.post('/zoekresultaat', async (req, res) => {
     const personDocument = {
       AntwoordVraag1: req.body.vraag1,
       AntwoordVraag2: parseInt(req.body.vraag2),
-      AntwoordVraag3: req.body.vraag3,
+      AntwoordVraag3: parseInt(req.body.vraag3),
       AntwoordVraag4: req.body.vraag4
     }
     // Insert a single document, wait for promise so we can read it back
@@ -72,19 +72,19 @@ app.post('/zoekresultaat', async (req, res) => {
   }
 })
 
-// app.post('/aanmelden', async (req, res) => {
-//   try {
-//     await client.connect()
+app.post('/aanmelden', async (req, res) => {
+  try {
+    await client.connect()
 
-//     await cole.findOneAndUpdate({ grootte: { $inc: 1 } })
-//     const data = await cole.findOne({ grootte: '' })
-//     res.render('pages/zoekresultaat', { data })
-//   } catch (err) {
-//     console.log(err.stack)
-//   } finally {
-//     await client.close()
-//   }
-// })
+    await cole.findOneAndUpdate({ $inc: { grootte: 1 } })
+    const data = await cole.findOne({ grootte: '' })
+    res.render('pages/zoekresultaat', { data })
+  } catch (err) {
+    console.log(err.stack)
+  } finally {
+    await client.close()
+  }
+})
 
 app.use(function (req, res, next) {
   res.status(404).render('pages/404page')
