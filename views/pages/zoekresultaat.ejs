@@ -1,51 +1,45 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head>
+  <head>
     <%- include('../partials/head'); %>
-</head>
-<body>
-    <header>
-        <%- include('../partials/header'); %>      
-    </header>
+  </head>
+  <body>
+    <header><%- include('../partials/header'); %></header>
 
     <main class="events">
-        <h1> Gevonden event(s)</h1>
-
+      <h1>Gevonden event(s)</h1>
+      
+        <% data.forEach((item)=> { %>
         <div class="event-found">
-            <div class="foto">
-                <img src=" <%= data.foto %>" alt="title of img">
-            </div>
-            <div class="data">
-                <h2> <%= data.eventnaam %> </h2>
-                <p> <%= data.soort %> </p>
-                <p> <%= data.locatie %> </p>
-                <p> <%= data.datum %> </p>
-                <p> <%= data.reistijd %> </p>
-                <p> <%= data.tijd %> </p>
-                <p> <%= data.grootte %> </p>
-            </div>
-
+          <div class="foto">
+            <img src=" <%= item.foto %>" alt="title of img" />
+          </div>
+          <div class="data">
+            <h2><%= item.eventnaam %></h2>
+            <p><%= item.soort %></p>
+            <p><%= item.locatie %></p>
+            <p><%= item.datum %></p>
+            <p><%= item.reistijd %></p>
+            <p><%= item.tijd %></p>
+            <p><%= item.grootte %></p>
             <section>
                 <form action="/aanmelden" method="POST">
-                    <button type="submit" name="aanmelden">
-                        Aanmelden
-                      </button>
+                  <input type="hidden" name="id" value="<%= data._id %>" />
+                  <button type="submit" name="aanmelden">Aanmelden</button>
                 </form>
-            </section>
+              </section>
           </div>
+        </div>
 
-    
+        <% }) %>
 
-        <aside class="side-menu">
-            <h3>Auto's van andere</h3>
-            <div class="auto-cont">
-            </div>
-        </aside>
+      <aside class="side-menu">
+        <h3>Auto's van andere</h3>
+        <div class="auto-cont"></div>
+      </aside>
     </main>
-    <footer>
-        <%- include('../partials/footer'); %>
-    </footer>
+    <footer><%- include('../partials/footer'); %></footer>
 
     <script src="js/index.js"></script>
-</body>
+  </body>
 </html>

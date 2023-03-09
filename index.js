@@ -7,7 +7,7 @@ const path = require('path')
 const port = 3000
 
 // Connecting mongoDB
-const { MongoClient, ServerApiVersion } = require('mongodb')
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb')
 const uri = process.env.MONGODB_URI
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 })
 const dbName = 'test'
@@ -29,23 +29,6 @@ app.get('/', function (req, res) {
   res.render('pages/index')
 })
 
-// zoekresultaten page
-// app.get('/zoekresultaat', async (req, res) => {
-//   try {
-//     await client.connect()
-//     console.log('Connected correctly to server')
-
-//     const data = await cole.find()
-//     // console.log(data)
-//     // iterate code goes here
-//     await data.forEach(console.log)
-
-//     // res.render('pages/zoekresultaat', { data })
-//   } catch (err) {
-//     console.log(err.stack)
-//   }
-// })
-
 app.post('/zoekresultaat', async (req, res) => {
   try {
     await client.connect()
@@ -61,14 +44,18 @@ app.post('/zoekresultaat', async (req, res) => {
     // Insert a single document, wait for promise so we can read it back
     await colf.insertOne(personDocument)
 
-    const data = await cole.findOne({ locatie: 'Europaplein 24, 1078 GZ Amsterdam', reistijd: { $gt: 50 }, datum: '23 maart 2023', tijd: '14:00 tot 18:00', foto: '../img/jdmcar.png', soort: 'JDM cars', grootte: { $gt: 60 }, eventnaam: { $ne: 'cars' } })
-    res.render('pages/zoekresultaat', { data })
+    // checkt of er op z'n minst 1 van de twee voldoen en laadt die dan zien
+    const data = await cole.find({ $and: [{ reistijd: { $not: { $gte: parseInt(req.body.vraag3) } } }, { grootte: { $not: { $gte: parseInt(req.body.vraag2) } } }, { soort: req.body.vraag1 }] }).toArray()
+    console.log(data)
+    if (data) {
+      res.render('pages/zoekresultaat', { data })
+    } else {
+      res.send('no results')
+    }
 
     console.log(personDocument)
   } catch (err) {
     console.log(err.stack)
-  } finally {
-    await client.close()
   }
 })
 
@@ -76,13 +63,13 @@ app.post('/aanmelden', async (req, res) => {
   try {
     await client.connect()
 
-    await cole.findOneAndUpdate({ $inc: { grootte: 1 } })
-    const data = await cole.findOne({ grootte: '' })
-    res.render('pages/zoekresultaat', { data })
+    await cole.updateOne({ _id: new ObjectId(req.body._id) }, { $inc: { grootte: 1 } })
+    const data = await cole.findOne({ _id: new ObjectId(req.body._id) })
+    res.render('pages/aanmelden', { data })
+
+    console.log(data)
   } catch (err) {
     console.log(err.stack)
-  } finally {
-    await client.close()
   }
 })
 

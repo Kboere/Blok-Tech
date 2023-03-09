@@ -173,22 +173,22 @@ width: 100%;
   margin: 0;
   }
 .event-found p:first-of-type::before{
-content: "Soort:";
+content: "Soort: ";
 font-weight: 700;
 }
 
 .event-found p:nth-of-type(2)::before{
-  content: "Locatie:";
+  content: "Locatie: ";
   font-weight: 700;
 }
 
 .event-found p:nth-of-type(3)::before{
-  content: "Datum:";
+  content: "Datum: ";
   font-weight: 700;
 }
 
 .event-found p:nth-of-type(4)::before{
-  content: "Reistijd:";
+  content: "Reistijd: ";
   font-weight: 700;
 }
 .event-found p:nth-of-type(4)::after{
@@ -196,15 +196,43 @@ font-weight: 700;
 }
 
 .event-found p:nth-of-type(5)::before{
-  content: "Tijd:";
+  content: "Tijd: ";
   font-weight: 700;
 }
 
 .event-found p:last-of-type::before{
-  content: "Grootte:";
+  content: "Grootte: ";
   font-weight: 700;
 }.event-found p:last-of-type::after{
-  content: "Auto's";
+  content: " Auto's";
+}
+
+.aangemeld {
+  background-color: rgba(0,255,0,0.4);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+}
+
+.aangemeld h2{
+  color: #fff;
+  margin: 0;
+}
+
+main.events section:first-of-type button {
+  float: right;
+  margin: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgoldenrodyellow;
+  padding: 14px 16px;
+  outline: none;
+  cursor: pointer;
+}
+
+main.events section:first-of-type {
+  width: 100%;
 }
 
 

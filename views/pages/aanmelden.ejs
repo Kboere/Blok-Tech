@@ -11,6 +11,10 @@
     <main class="events">
         <h1> Gevonden event(s)</h1>
 
+        <section class="aangemeld">
+            <h2> Je hebt je aangemeld voor <%= data.eventnaam %></h2>
+        </section>
+
         <div class="event-found">
             <div class="foto">
                 <img src=" <%= data.foto %>" alt="title of img">
@@ -27,6 +31,7 @@
 
             <section>
                 <form action="/aanmelden" method="POST">
+                    <input type="hidden" name="id" value="<%= data._id %>">
                     <button type="submit" name="aanmelden">
                         Aanmelden
                       </button>
