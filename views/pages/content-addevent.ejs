@@ -1,0 +1,87 @@
+<form action="succes" method="post" class="survey-add" enctype="multipart/form-data">
+
+    <h2 class="survey__panel__question">
+      Wat is de naam van het event?
+    </h2>
+    <div class="survey__panel__period">
+      <div class="form-group">
+        <input  type="text" name="naam" placeholder="bijvoorbeeld: Car Meeting Drachten" />
+      </div>
+    </div>
+
+    <h2 class="survey__panel__question">
+        Wat is de datum van het event?
+      </h2>
+      <div class="survey__panel__period">
+        <div class="form-group">
+          <input  type="text" name="datum" placeholder="bijvoorbeeld: Car Meeting Drachten" />
+        </div>
+      </div>
+
+      <h2 class="survey__panel__question">
+        Wat is de locatie van het event?
+      </h2>
+      <div class="survey__panel__period">
+        <div class="form-group">
+          <input  type="text" name="locatie" placeholder="bijvoorbeeld: Car Convetion Center, NL" />
+        </div>
+      </div>
+
+      <h2 class="survey__panel__question">
+        Vanaf hoelaat tot hoelaat is het event?
+      </h2>
+      <div class="survey__panel__period">
+        <div class="form-group">
+          <input  type="text" name="tijden" placeholder="bijvoorbeeld: 09:00 tot 18:00" />
+        </div>
+      </div>
+
+      <h2 class="survey__panel__question">
+        Hoeveel auto's komen er? (een schatting mag ook)
+      </h2>
+      <div class="survey__panel__period">
+        <div class="form-group">
+          <input  type="text" name="grootte" placeholder="bijvoorbeeld: 18" />
+        </div>
+      </div>
+
+      <h2 class="survey__panel__question">
+        Hoeveel kilometer is het event lang
+      </h2>
+      <div class="survey__panel__period">
+        <div class="form-group">
+          <input  type="text" name="reistijd" placeholder="bijvoorbeeld: 66" />
+        </div>
+      </div>
+
+      <h2 class="survey__panel__question">
+        Wat voor soort car event is het?
+      </h2>
+      <div class="survey__panel__personaldetails">
+        <div class="form-group">
+            <select name="soort" id="dropdown">
+                <option value>kies een categorie</option>
+                <option value="JDM cars">JDM cars</option>
+                <option value="Sportwagen">Sportwagen</option>
+                <option value="Supercar">Supercar</option>
+              </select>
+        </div>
+      </div>
+
+      <h2 class="survey__panel__question">
+        Voeg een foto toe dat het event omschrijft
+      </h2>
+      <div class="survey__panel__period">
+        <div class="form-group">
+          <input  type="file" name="uploaded" accept="image/jpeg, image/png" />
+        </div>
+      </div>
+
+
+
+  <div class="form-buttons">
+    <button class="button" type="submit" id="submit" name="submit">
+      Submit
+    </button>
+  </div>
+</form>

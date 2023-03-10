@@ -8,34 +8,40 @@
 
     <main class="events">
       <h1>Gevonden event(s)</h1>
-      
-        <% data.forEach((item)=> { %>
-        <div class="event-found">
-          <div class="foto">
-            <img src=" <%= item.foto %>" alt="title of img" />
-          </div>
-          <div class="data">
-            <h2><%= item.eventnaam %></h2>
-            <p><%= item.soort %></p>
-            <p><%= item.locatie %></p>
-            <p><%= item.datum %></p>
-            <p><%= item.reistijd %></p>
-            <p><%= item.tijd %></p>
-            <p><%= item.grootte %></p>
-            <section>
-                <form action="/aanmelden" method="POST">
-                  <input type="hidden" name="id" value="<%= data._id %>" />
-                  <button type="submit" name="aanmelden">Aanmelden</button>
-                </form>
-              </section>
-          </div>
-        </div>
 
-        <% }) %>
+      <% data.forEach((item)=> { %>
+      <div class="event-found">
+        <div class="foto">
+          <img src=" <%= item.foto %>" alt="title of img" />
+        </div>
+        <div class="data">
+          <h2><%= item.eventnaam %></h2>
+          <p><%= item.soort %></p>
+          <p><%= item.locatie %></p>
+          <p><%= item.datum %></p>
+          <p><%= item.reistijd %></p>
+          <p><%= item.tijd %></p>
+          <p><%= item.grootte %></p>
+          <section>
+            <form>
+              <button type="submit" name="aanmelden">Aanmelden</button>
+            </form>
+          </section>
+        </div>
+      </div>
+
+      <% }) %>
 
       <aside class="side-menu">
-        <h3>Auto's van andere</h3>
-        <div class="auto-cont"></div>
+
+          <h3>Jouw locatie:</h3>
+          <div class="weer-cont">
+            <p><%= weatherData.country_name %></p>
+            <p><%= weatherData.city %></p>
+            <p><%= weatherData.ip %></p>
+            <p><%= weatherData.localtime %></p>
+          </div>
+            
       </aside>
     </main>
     <footer><%- include('../partials/footer'); %></footer>

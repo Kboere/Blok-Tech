@@ -1,96 +1,70 @@
-<form action="zoekresultaat" method="post" id="survey-form" class="survey" novalidate>
-  <div class="progressbar" tabindex="0" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1" aria-valuetext="Question 1 of 5: How long have you been using our product?">
-    <span class="progressbar__step active" aria-hidden="true"></span>
-    <span class="progressbar__step" aria-hidden="true"></span>
-    <span class="progressbar__step" aria-hidden="true"></span>
-    <span class="progressbar__step" aria-hidden="true"></span>
-  </div>
+<form action="zoekresultaat" method="post" id="survey-form" class="survey">
 
-  <section class="survey__panel survey__panel--current" aria-hidden="false" data-index="1" data-panel="firstPanel" data-requirement="option">
     <h2 class="survey__panel__question">
-      <span class="visuallyhidden">Vraag 1 van 4 </span>Wat voor soort car meeting zoek je?
+      Wat voor soort car meeting zoek je?
     </h2>
     <div class="survey__panel__period">
       <div class="form-group">
-        <input id="never" type="radio" name="vraag1" value="alle autos" />
-        <label for="never">Alle auto's</label>
-      </div>
-      <div class="form-group">
-        <input id="lessthenoneyear" type="radio" name="vraag1" value="JDM cars" />
+        <input  type="radio" name="soort" value="JDM cars" />
         <label for="lessthenoneyear">JDM cars</label>
       </div>
       <div class="form-group">
-        <input id="onetotwoyears" type="radio" name="vraag1" value="Sportwagen" />
+        <input type="radio" name="soort" value="Sportwagen" />
         <label for="onetotwoyears">Sportwagen</label>
       </div>
       <div class="form-group">
-        <input id="morethentwoyears" type="radio" name="vraag1" value="Supercar" />
+        <input id="morethentwoyears" type="radio" name="soort" value="Supercar" />
         <label for="morethentwoyears">Supercar</label>
       </div>
     </div>
-    <p class="error-message"></p>
-  </section>
 
-  <section class="survey__panel" aria-hidden="true" data-index="2" data-panel="secondPanel" data-requirement="option">
     <h2 class="survey__panel__question">
-      <span class="visuallyhidden">Vraag 2 van 4 </span>Hoe groot moet de meeting zijn?
+      Hoe groot moet de meeting zijn?
     </h2>
     <div class="survey__panel__satisfaction">
       <div class="form-group">
-        <input id="notsatified" type="radio" class="radiobox" name="vraag2" value="30" />
+        <input id="notsatified" type="radio" class="radiobox" name="grootte" value="30" />
         <label for="notsatified">1 - 30</label>
       </div>
       <div class="form-group">
-        <input id="quitesatisfied" type="radio" class="radiobox" name="vraag2" value="60" />
+        <input id="quitesatisfied" type="radio" class="radiobox" name="grootte" value="60" />
         <label for="quitesatisfied">30 - 60</label>
       </div>
       <div class="form-group">
-        <input id="satisfied" type="radio" class="radiobox" name="vraag2" value="999" />
-        <label for="satisfied"> meer dan 60 </label>
-      </div>
-      <div class="form-group">
-        <input id="completelysatisfied" type="radio" class="radiobox" name="vraag2" value="0" />
+        <input id="completelysatisfied" type="radio" class="radiobox" name="grootte" value="999" />
         <label for="completelysatisfied">Maakt niet uit</label>
       </div>
     </div>
-    <p class="error-message"></p>
-  </section>
 
-  <section class="survey__panel" aria-hidden="true" data-index="3" data-panel="thirdPanel" data-requirement="checkbox">
     <h2 class="survey__panel__question">
-      <span class="visuallyhidden">Vraag 3 van 4 </span>Hoe ver wil je reizen?
+      Hoe ver wil je reizen?
     </h2>
     <div class="survey__panel__hearabout">
       <div class="form-group">
-        <input type="checkbox" class="checkbox" id="searchengine" name="vraag3" value="25" />
+        <input type="radio" class="radiobox" id="searchengine" name="reistijd" value="25" />
         <label for="searchengine">1km - 25km</label>
       </div>
       <div class="form-group">
-        <input type="checkbox" class="checkbox" id="friend" name="vraag3" value="50" />
+        <input type="radio" class="radiobox" id="friend" name="reistijd" value="50" />
         <label for="friend">1km - 50km </label>
       </div>
       <div class="form-group">
-        <input type="checkbox" class="checkbox" id="socialmedia" name="vraag3" value="999" />
+        <input type="radio" class="radiobox" id="socialmedia" name="reistijd" value="999" />
         <label for="socialmedia">Maakt niet uit</label>
       </div>
     </div>
-    <p class="error-message"></p>
-  </section>
 
-  <section class="survey__panel" aria-hidden="true" data-index="4" data-panel="fourtPanel" data-requirement="name;email;country">
     <h2 class="survey__panel__question">
-      <span class="visuallyhidden">Vraag 4 van 4 </span>Vul uw gegevens in
+      Vul uw gegevens in
     </h2>
     <div class="survey__panel__personaldetails">
       <div class="form-group">
         <label for="name" id="name-label" class="name">Naam:</label>
         <input type="text" id="name" name="name" required placeholder="Uw naam" />
-        <p class="error-message"></p>
       </div>
       <div class="form-group">
         <label for="email" id="email-label" class="email">Email:</label>
         <input type="email" id="email" name="email" required placeholder="Jouw e-mailadress" />
-        <p class="error-message"></p>
       </div>
       <div class="form-group">
         <select name="country" id="dropdown" name="country">
@@ -103,21 +77,11 @@
           <option value="Spain">Spanje</option>
           <option value="United Kingdom">Veringd Koninkrijk</option>
         </select>
-        <p class="error-message"></p>
       </div>
-      <!-- <div class="form-group">
-        <label for="number" id="number-label" class="age">Age</label>
-        <input type="number" id="number" name="age" min="0" max="150" required placeholder="Age" />
-        <p class="error-message"></p>
-      </div> -->
     </div>
-  </section>
+
   <div class="form-buttons">
-    <button class="button" type="button" name="prev" disabled="disabled" aria-label="Previous" aria-hidden="true">
-      Prev
-    </button>
-    <button class="button" type="button" name="next" aria-label="Next" aria-hidden="false">Next</button>
-    <button class="button" type="submit" id="submit" name="submit" disabled="disabled" aria-hidden="true">
+    <button class="button" type="submit" id="submit" name="submit">
       Submit
     </button>
   </div>
