@@ -9,7 +9,7 @@ const port = 3000
 const multer = require('multer')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'static/eventsUpload')
+    cb(null, 'static/events/')
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname)
@@ -52,12 +52,13 @@ app.post('/succes', upload.single('uploaded'), async (req, res, next) => {
       eventnaam: req.body.naam,
       datum: req.body.datum,
       tijd: req.body.tijden,
-      foto: String(req.file.path),
+      foto: req.file.path,
       grootte: parseInt(req.body.grootte),
       reistijd: parseInt(req.body.reistijd),
       soort: req.body.soort,
       locatie: req.body.locatie
     }
+    console.log(addevents.foto)
     // Insert a single document, wait for promise so we can read it back
     await cole.insertOne(addevents)
     res.render('pages/succes')
@@ -92,9 +93,20 @@ app.post('/zoekresultaat', async (req, res) => {
           { soort: req.body.soort }
         ] 
       }).toArray()
-     
+
+    const countEvents = await cole.countDocuments(
+      { 
+        $and: [
+          { reistijd: { $not: { $gte: parseInt(req.body.reistijd) } } }, 
+          { grootte: { $not: { $gte: parseInt(req.body.grootte) } } }, 
+          { soort: req.body.soort }
+        ] 
+      }
+    )
+    console.log(`Number of documents in the events collection: ${countEvents}`)
+  
     if (data) {
-      res.render('pages/zoekresultaat', { data, weatherData })
+      res.render('pages/zoekresultaat', { data, weatherData, countEvents })
     } else {
       res.send('no results')
     }

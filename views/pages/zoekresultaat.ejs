@@ -7,7 +7,7 @@
     <header><%- include('../partials/header'); %></header>
 
     <main class="events">
-      <h1>Gevonden event(s)</h1>
+      <h1><%= countEvents %> Gevonden event(s)</h1>
 
       <% data.forEach((item)=> { %>
       <div class="event-found">
