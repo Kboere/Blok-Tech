@@ -2,11 +2,16 @@
   box-sizing: border-box;
 }
 :root {
+  --bgClr: f2f2f2;
   --darkBlue: #010a43;
   --lightGreen: #a7e9af;
   --whiteClr: #fff;
+  --blackClr: #000;
   --lightBlue: rgba(0, 64, 128, 0.2);
   --intenseBlue: #46b3e6;
+  --btnHoverClr: #444e83;
+  --btnClr: #5f6caf;
+  --darkGrey: #4b4b4b;
 }
 
 body {
@@ -44,13 +49,13 @@ ul {
 }
 
 h1 {
-  color: #fff;
+  color: var(--whiteClr);
 }
 
 h2,
 h3,
 a {
-  color: #000;
+  color: var(--blackClr);
 }
 
 a {
@@ -58,7 +63,6 @@ a {
 }
 
 button {
-  --btnClr: #5f6caf;
   display: inline-block;
   padding: 10px 25px;
   background-color: var(--btnClr);
@@ -71,7 +75,6 @@ button {
 }
 
 button:hover {
-  --btnHoverClr: #444e83;
   background-color: var(--btnHoverClr);
   border-color: var(--btnHoverClr);
 }
@@ -102,12 +105,12 @@ nav ul a {
 }
 
 nav ul a {
-  color: #000;
+  color: var(--blackClr);
   font-size: 1em;
 }
 
 nav ul a:hover {
-  color: #718daa;
+  color: var(--btnHoverClr);
 }
 
 section.form-voorkeur {
@@ -131,7 +134,7 @@ main {
 
 aside.side-menu {
   width: 25%;
-  background-color: #f2f2f2;
+  background-color: var(--bgClr);
   padding: 20px;
   position: absolute;
   right: 0;
@@ -164,7 +167,7 @@ main.events h1 {
   width: 70%;
   background-color: rgba(242, 242, 242, 0.4);
   backdrop-filter: blur(10px);
-  color: #000;
+  color: var(--blackClr);
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -242,7 +245,7 @@ main.events h1 {
 }
 
 .aangemeld h2 {
-  color: #fff;
+  color: var(--whiteClr);
   margin: 0;
 }
 
@@ -255,7 +258,7 @@ main.events section:first-of-type button {
   padding: 14px 16px;
   outline: none;
   cursor: pointer;
-  color: #000;
+  color: var(--blackClr);
 }
 
 main.events section:first-of-type {
@@ -271,7 +274,7 @@ main.succes h1 {
   background: rgba(27, 183, 20, 0.4);
   backdrop-filter: blur(10px);
   padding: 30px;
-  color: #fff;
+  color: var(--whiteClr);
   border-radius: 10px;
   width: 100%;
   text-align: center;
@@ -433,7 +436,6 @@ select {
 }
 
 .survey__panel strong {
-  --darkGrey: #4b4b4b;
   display: block;
   margin-bottom: 0.3rem;
   font-weight: normal;
@@ -483,24 +485,18 @@ select {
 
 .radiobox,
 .radiobox:checked,
-.radiobox:not(:checked),
-.checkbox,
-.checkbox:not(:checked) {
+.radiobox:not(:checked) {
   opacity: 0;
 }
 
 .radiobox:checked + label,
-.radiobox:not(:checked) + label,
-.checkbox:checked + label,
-.checkbox:not(:checked) + label {
+.radiobox:not(:checked) + label {
   position: relative;
   padding-left: 30px;
 }
 
 .radiobox:checked + label:before,
-.radiobox:not(:checked) + label:before,
-.checkbox:checked + label:before,
-.checkbox:not(:checked) + label:before {
+.radiobox:not(:checked) + label:before {
   content: "";
   position: absolute;
   left: 0;
@@ -526,14 +522,12 @@ select {
     opacity 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
-.radiobox:not(:checked) + label:after,
-.checkbox:not(:checked) + label:after {
+.radiobox:not(:checked) + label:after{
   opacity: 0;
   transform: scale(0);
 }
 
-.radiobox:checked + label:after,
-.checkbox:checked + label:after {
+.radiobox:checked + label:after {
   opacity: 1;
   transform: scale(1);
 }
@@ -547,33 +541,6 @@ select {
 
 .survey__panel .radiobox {
   margin-left: 10px;
-}
-
-.checkbox:checked + label:before,
-.checkbox:not(:checked) + label:before {
-  border-radius: 0;
-}
-
-.checkbox:checked + label:before {
-  background-color: var(--intenseBlue);
-}
-
-.checkbox:checked + label:after,
-.checkbox:not(:checked) + label:after {
-  content: "";
-  position: absolute;
-  left: 4px;
-  top: 7px;
-  width: 2px;
-  height: 2px;
-  background-color: var(--whiteClr);
-  box-shadow: 2px 0 0 var(--whiteClr), 4px 0 0 var(--whiteClr),
-    4px -2px 0 var(--whiteClr), 4px -4px 0 var(--whiteClr),
-    4px -6px 0 var(--whiteClr), 4px -8px 0 var(--whiteClr);
-  transform: rotate(45deg);
-  transition: transform 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86),
-    opacity 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86),
-    background-color 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 .survey__panel__personaldetails .form-group {
@@ -603,8 +570,7 @@ select {
   margin-top: 30px;
 }
 
-.button {
-  --btnClr: #5f6caf;
+/* .button {
   display: inline-block;
   padding: 10px 25px;
   background-color: var(--btnClr);
@@ -620,11 +586,11 @@ select {
   --btnHoverClr: #444e83;
   background-color: var(--btnHoverClr);
   border-color: var(--btnHoverClr);
-}
+} */
 
 footer {
   text-align: center;
-  color: #fff;
+  color: var(--whiteClr);
 }
 
 /* ================================= 
