@@ -26,8 +26,8 @@ client.connect()
 
 // collections aanroepen
 const db = client.db(dbName)
-const colf = db.collection('form')
-const cole = db.collection('events')
+const forms = db.collection('form')
+const evenementen = db.collection('events')
 
 // set the view engine to ejs
 app.set('view engine', 'ejs')
@@ -60,7 +60,7 @@ app.post('/succes', upload.single('uploaded'), async (req, res, next) => {
     }
     console.log(addevents.foto)
     // Insert a single document, wait for promise so we can read it back
-    await cole.insertOne(addevents)
+    await evenementen.insertOne(addevents)
     res.render('pages/succes')
   } catch (err) {
     console.log(err.stack)
@@ -78,14 +78,14 @@ app.post('/zoekresultaat', async (req, res) => {
     }
 
     // Insert a single document, wait for promise so we can read it back
-    await colf.insertOne(personDocument)
+    await forms.insertOne(personDocument)
 
     // fetch current weather from API
     const response = await fetch('http://api.weatherapi.com/v1/ip.json?key=270ff04d6ed642ac97a112730231003&q=auto:ip')
     const weatherData = await response.json()
 
     // checks if all elements compare to a event
-    const data = await cole.find(
+    const data = await evenementen.find(
       { 
         $and: [
           { reistijd: { $not: { $gte: parseInt(req.body.reistijd) } } }, 
@@ -94,7 +94,7 @@ app.post('/zoekresultaat', async (req, res) => {
         ] 
       }).toArray()
 
-    const countEvents = await cole.countDocuments(
+    const countEvents = await evenementen.countDocuments(
       { 
         $and: [
           { reistijd: { $not: { $gte: parseInt(req.body.reistijd) } } }, 
