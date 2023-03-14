@@ -10,8 +10,31 @@ Ik hbe ervoor gekozen om te focussen op een aantal features. in de tabel heirond
 | Gevonden events weergeven |
 | Evenementen toevoegen |
 
+## 🚀 Dit Project Gebruiken?
+Om de app te gebruiken moet je deze repository clonen. gebruik de volgende commando in jouw Terminal:
+```
+git clone https://github.com/Kboere/Blok-Tech
+```
+De volgende stap is om een MongoDB account aan te maken met een database en 2 collections. Mier hierover kun je vinden in mijn wiki onder het kopje [Database Structure](https://github.com/Kboere/Blok-Tech/wiki/database).
+
+Zorg ervoor dat je in de "events" collection een aantal evenement hebt staan!
+
+Nadat je dit hebt gedaan is het noodzakelijk om alle **NPM Packeges** te downloaden. Deze kun je zien in de package.json file onder "dependencies". Gebruik hiervoor:
+```
+$ npm install (naam van package)
+```
+
+Je bent er bijna!
+
+Om jouw database te connecten aan het project maak je een .env fila aan via de Terminal (touch .env). Hierin zet je vervolgens de volgende regel code:
+```
+MONGODB_URI = 'Jouw mongodb connectie link'
+```
+
+## GEFELICITEERD!🎉 je kunt de AutoMatch gebruiken!
+
 ## ✍🏻 Auteur
 Dit project is gemaakt door Kevin Boere
 
 ## 📜 License
-Dit project heeft een [MIT](https://www.example.com) license
+Dit project heeft een [MIT](https://github.com/Kboere/Blok-Tech/blob/main/LICENSE) license
