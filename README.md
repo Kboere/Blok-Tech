@@ -15,7 +15,7 @@ Om de app te gebruiken moet je deze repository clonen. gebruik de volgende comma
 ```
 git clone https://github.com/Kboere/Blok-Tech
 ```
-De volgende stap is om een MongoDB account aan te maken met een database en 2 collections. Mier hierover kun je vinden in mijn wiki onder het kopje [Database Structure](https://github.com/Kboere/Blok-Tech/wiki/database).
+De volgende stap is om een MongoDB account aan te maken met een database en 2 collections. Meer hierover kun je vinden in mijn wiki onder het kopje [Database Structure](https://github.com/Kboere/Blok-Tech/wiki/database).
 
 Zorg ervoor dat je in de "events" collection een aantal evenement hebt staan!
 
