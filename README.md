@@ -31,7 +31,7 @@ Om jouw database te connecten aan het project maak je een .env file aan via de T
 MONGODB_URI = 'Jouw mongodb connectie link'
 ```
 
-## GEFELICITEERD!🎉 je kunt de AutoMatch gebruiken!
+## GEFELICITEERD!🎉  je kunt de AutoMatch app gaan gebruiken!
 
 ## ✍🏻 Auteur
 Dit project is gemaakt door Kevin Boere
