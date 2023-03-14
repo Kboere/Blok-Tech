@@ -37,4 +37,5 @@ MONGODB_URI = 'Jouw mongodb connectie link'
 Dit project is gemaakt door Kevin Boere
 
 ## 📜 License
+Copyright © 2023 Kevin Boere
 Dit project heeft een [MIT](https://github.com/Kboere/Blok-Tech/blob/main/LICENSE) license
