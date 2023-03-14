@@ -26,7 +26,7 @@ $ npm install (naam van package)
 
 Je bent er bijna!
 
-Om jouw database te connecten aan het project maak je een .env fila aan via de Terminal (touch .env). Hierin zet je vervolgens de volgende regel code:
+Om jouw database te connecten aan het project maak je een .env file aan via de Terminal (`touch .env`). Hierin zet je vervolgens de volgende regel code:
 ```
 MONGODB_URI = 'Jouw mongodb connectie link'
 ```
