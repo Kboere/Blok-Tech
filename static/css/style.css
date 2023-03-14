@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 :root {
-  --bgClr: f2f2f2;
+  --bgClr: #f2f2f2;
   --darkBlue: #010a43;
   --lightGreen: #a7e9af;
   --whiteClr: #fff;
