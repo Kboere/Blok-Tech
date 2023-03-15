@@ -186,7 +186,7 @@ main.events h1 {
 .event-found img {
   width: 100%;
   margin: auto;
-  object-fit: fill;
+  object-fit: cover;
   height: 100%;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;

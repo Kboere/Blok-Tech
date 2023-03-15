@@ -52,7 +52,7 @@ app.post('/succes', upload.single('uploaded'), async (req, res, next) => {
       eventnaam: req.body.naam,
       datum: req.body.datum,
       tijd: req.body.tijden,
-      foto: req.file.path,
+      foto: `/events/${req.file.filename}`,
       grootte: parseInt(req.body.grootte),
       reistijd: parseInt(req.body.reistijd),
       soort: req.body.soort,
@@ -81,7 +81,8 @@ app.post('/zoekresultaat', async (req, res) => {
     await forms.insertOne(personDocument)
 
     // fetch current weather from API
-    const response = await fetch('http://api.weatherapi.com/v1/ip.json?key=270ff04d6ed642ac97a112730231003&q=auto:ip')
+    const api = process.env.APIKEY
+    const response = await fetch(api)
     const weatherData = await response.json()
 
     // checks if all elements compare to a event
