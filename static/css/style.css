@@ -7,6 +7,7 @@
   --lightGreen: #a7e9af;
   --whiteClr: #fff;
   --blackClr: #000;
+  --greyClr: #ddd
   --lightBlue: rgba(0, 64, 128, 0.2);
   --intenseBlue: #46b3e6;
   --btnHoverClr: #444e83;
@@ -14,6 +15,9 @@
   --darkGrey: #4b4b4b;
 }
 
+/* ================================= 
+  Algemene stijling
+==================================== */
 body {
   position: relative;
   font-family: "Montserrat", sans-serif;
@@ -36,91 +40,81 @@ body:before {
   background-size: cover;
   z-index: -1;
 }
-
 header {
   background: rgba(242, 242, 242, 0.3);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(.8em);
 }
-
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-
 h1 {
   color: var(--whiteClr);
 }
-
 h2,
 h3,
 a {
   color: var(--blackClr);
 }
-
 a {
   text-decoration: none;
 }
-
 button {
   display: inline-block;
-  padding: 10px 25px;
+  padding: .8em 1.5em;
   background-color: var(--btnClr);
   color: var(--whiteClr);
-  border: 2px solid var(--btnClr);
-  border-radius: 3px;
-  font-size: 0.875rem;
+  border: .2em solid var(--btnClr);
+  border-radius: 0.4em;
+  font-size: 1em;
   font-family: inherit;
   cursor: pointer;
 }
-
 button:hover {
   background-color: var(--btnHoverClr);
   border-color: var(--btnHoverClr);
 }
 
+/* ================================= 
+  Navigatie stijling
+==================================== */
 nav {
-  max-width: 1200px;
-  padding: 0px 10px;
+  max-width: 75em;
+  padding: 0 .8em;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: auto;
 }
-
 .logo {
   margin: 0;
   font-size: 1.45em;
 }
-
 nav ul {
-  margin-top: 5px;
+  margin-top: .4em;
 }
 .logo a,
 nav ul a {
-  padding: 10px 15px;
+  padding: .8em .8em;
   text-transform: uppercase;
   text-align: center;
   display: block;
 }
-
 nav ul a {
   color: var(--blackClr);
   font-size: 1em;
 }
-
 nav ul a:hover {
   color: var(--btnHoverClr);
 }
-
 section.form-voorkeur {
   width: 100%;
-  margin-right: 30px;
+  margin-right: 1.5em;
 }
-
 main {
-  max-width: 1200px;
-  padding: 0px 10px;
+  max-width: 75em;
+  padding: 0 .8em;
   margin: auto;
   display: flex;
   flex-wrap: nowrap;
@@ -131,21 +125,18 @@ main {
 /* ================================= 
   Stijling events page
 ==================================== */
-
 aside.side-menu {
   width: 25%;
   background-color: var(--bgClr);
-  padding: 20px;
+  padding: 1.2em;
   position: absolute;
   right: 0;
-  margin-top: 93px;
-  border-radius: 10px;
+  margin-top: 7em;
+  border-radius: .8em;
 }
-
 aside.side-menu h3 {
   margin-top: 0;
 }
-
 main.events {
   display: flex;
   flex-wrap: wrap;
@@ -153,23 +144,21 @@ main.events {
   align-items: unset;
   position: relative;
 }
-
 main.events h1 {
   width: 100%;
 }
-
 .event-found {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
+  gap: 0;
   grid-template-areas: "foto Data";
   width: 70%;
   background-color: rgba(242, 242, 242, 0.4);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(.8em);
   color: var(--blackClr);
-  border-radius: 10px;
-  margin-bottom: 20px;
+  border-radius: .8em;
+  margin-bottom: 1.2em;
 }
 .foto {
   grid-area: foto;
@@ -182,39 +171,33 @@ main.events h1 {
   display: flex;
   flex-wrap: wrap;
 }
-
 .event-found img {
   width: 100%;
   margin: auto;
   object-fit: cover;
   height: 100%;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: .8em;
+  border-bottom-left-radius: .8em;
 }
-
 .event-found .data h2 {
   width: 100%;
 }
-
 .event-found .data p {
-  width: calc(50% - 10px);
+  width: calc(50% - .8em);
   margin: 0;
 }
 .event-found p:first-of-type::before {
   content: "Soort: ";
   font-weight: 700;
 }
-
 .event-found p:nth-of-type(2)::before {
   content: "Locatie: ";
   font-weight: 700;
 }
-
 .event-found p:nth-of-type(3)::before {
   content: "Datum: ";
   font-weight: 700;
 }
-
 .event-found p:nth-of-type(4)::before {
   content: "Reistijd: ";
   font-weight: 700;
@@ -222,12 +205,10 @@ main.events h1 {
 .event-found p:nth-of-type(4)::after {
   content: "km";
 }
-
 .event-found p:nth-of-type(5)::before {
   content: "Tijd: ";
   font-weight: 700;
 }
-
 .event-found p:last-of-type::before {
   content: "Grootte: ";
   font-weight: 700;
@@ -235,47 +216,41 @@ main.events h1 {
 .event-found p:last-of-type::after {
   content: " Auto's";
 }
-
 .aangemeld {
   background-color: rgba(0, 255, 0, 0.4);
-  backdrop-filter: blur(10px);
-  padding: 30px;
-  margin-bottom: 50px;
-  border-radius: 10px;
+  backdrop-filter: blur(.8em);
+  padding: 1.5em;
+  margin-bottom: 3em;
+  border-radius: .8em;
 }
-
 .aangemeld h2 {
   color: var(--whiteClr);
   margin: 0;
 }
-
 main.events section:first-of-type button {
   float: right;
-  margin: 20px;
+  margin: 1.2em;
   border: none;
-  border-radius: 5px;
+  border-radius: .4em;
   background-color: lightgoldenrodyellow;
-  padding: 14px 16px;
+  padding: 1em;
   outline: none;
   cursor: pointer;
   color: var(--blackClr);
 }
-
 main.events section:first-of-type {
   width: 100%;
 }
-
 main.succes {
   display: block;
   text-align: center;
 }
-
 main.succes h1 {
   background: rgba(27, 183, 20, 0.4);
-  backdrop-filter: blur(10px);
-  padding: 30px;
+  backdrop-filter: blur(.8em);
+  padding: 1.5em;
   color: var(--whiteClr);
-  border-radius: 10px;
+  border-radius: .8em;
   width: 100%;
   text-align: center;
 }
@@ -283,109 +258,42 @@ main.succes h1 {
 /* ================================= 
   Styling formulier
 ==================================== */
-
-:focus {
-  outline: 2px solid #f8dc88;
-}
-
-button,
-input,
-select,
-textarea {
+.survey button,
+.survey input,
+.survey select,
+.survey textarea {
   font-family: inherit;
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
 }
-
-button,
-input {
+.survey button,
+.survey input {
   overflow: visible;
 }
-
-button,
-select {
+.survey button,
+.survey select {
   text-transform: none;
 }
-
-button,
-[type="button"],
-[type="submit"] {
-  appearance: button;
-  -webkit-appearance: button;
-}
-
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
 [type="checkbox"],
 [type="radio"] {
   box-sizing: border-box;
   padding: 0;
 }
-
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-.header {
-  align-self: center;
-  text-align: center;
-}
-
-.header__title {
-  margin: 0;
-  font-size: 2em;
-  line-height: 1.2;
-}
-
-.header__description {
-  margin-bottom: 3rem;
-  font-size: 1em;
-  line-height: 1.4;
-}
-
-main.submission {
-  align-self: center;
-  justify-self: center;
-}
-
-h2.submission {
-  text-align: center;
-}
-
-.illustration {
-  width: 100%;
-  border-style: none;
-}
-
-label {
+.survey label {
   cursor: pointer;
 }
-
 .survey {
   display: flex;
   flex-direction: column;
   margin: auto;
   width: 80%;
   background-color: RGBA(255, 255, 255, 0.4);
-  padding: 50px;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  margin-bottom: 150px;
+  padding: 3em;
+  border-radius: .8em;
+  backdrop-filter: blur(.8em);
+  margin-bottom: 9em;
 }
-
 .survey-add {
   display: flex;
   flex-wrap: wrap;
@@ -393,227 +301,163 @@ label {
   margin: auto;
   width: 80%;
   background-color: RGBA(255, 255, 255, 0.4);
-  padding: 50px;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  margin-bottom: 150px;
+  padding: 3em;
+  border-radius: .8em;
+  backdrop-filter: blur(.8em);
+  margin-bottom: 9em;
 }
-
 form.survey-add h2,
 form.survey-add .survey__panel__period {
   width: 50%;
   margin: 0;
 }
-
 .survey-add input[type="text"],
 .survey-add input[type="number"],
 .survey-add input[type="file"],
 select {
-  width: 370px;
-  padding: 0.6rem 0.75rem;
+  width: 23em;
+  padding: 0.6em 0.75em;
   appearance: none;
   -webkit-appearance: none;
-  border: 2px solid var(--lightBlue);
+  border: .2em solid var(--lightBlue);
 }
-
 .survey-add .form-group {
-  margin: 1rem 0;
+  margin: 1em 0;
 }
-
 .survey__panel {
   display: none;
-  padding: 1rem;
+  padding: 1em;
 }
-
 .survey__panel--current {
   display: block;
 }
-
 .survey__panel__question {
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.5em;
   font-size: 1.35em;
   line-height: 1.2;
 }
-
 .survey__panel strong {
   display: block;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.3em;
   font-weight: normal;
-  font-size: 0.95rem;
+  font-size: 0.95em;
   color: var(--darkGrey);
 }
 .survey__panel__satisfaction,
 .survey__panel__hearabout {
-  margin-bottom: 50px;
+  margin-bottom: 3em;
 }
-
 .survey__panel__period {
   display: grid;
-  grid-gap: 13px;
-  grid-template-columns: repeat(2, 150px);
-  margin-bottom: 50px;
+  grid-gap: 1em;
+  grid-template-columns: repeat(2, 9em);
+  margin-bottom: 3em;
 }
-
 .survey__panel__period [type="radio"] {
   opacity: 0;
   display: block;
-  width: 150px;
-  height: 50px;
+  width: 9.4em;
+  height: 3em;
   position: absolute;
   z-index: 1;
   cursor: pointer;
 }
-
 .survey__panel__period label {
   display: inline-block;
   position: relative;
-  width: 150px;
-  padding: 15px 30px;
-  border: 2px solid var(--lightBlue);
+  width: 9.4em;
+  padding: .8em 1.5em;
+  border: .2em solid var(--lightBlue);
   text-align: center;
-  border-radius: 3px;
+  border-radius: .3em;
 }
-
 .survey__panel__period label:hover,
 .survey__panel__period [type="radio"]:checked + label {
   border-color: var(--intenseBlue);
 }
-
 .review__period [type="radio"]:checked + label {
   border: var(--intenseBlue);
 }
-
 .radiobox,
 .radiobox:checked,
 .radiobox:not(:checked) {
   opacity: 0;
 }
-
 .radiobox:checked + label,
 .radiobox:not(:checked) + label {
   position: relative;
-  padding-left: 30px;
+  padding-left: 1.5em;
 }
-
 .radiobox:checked + label:before,
 .radiobox:not(:checked) + label:before {
   content: "";
   position: absolute;
   left: 0;
   top: 0;
-  width: 18px;
-  height: 18px;
-  border: 1px solid #ddd;
+  width: 1.2em;
+  height: 1.2em;
+  border: .1em solid var(--greyClr);
   border-radius: 100%;
   background-color: var(--whiteClr);
 }
-
 .radiobox:checked + label:after,
 .radiobox:not(:checked) + label:after {
   content: "";
-  width: 8px;
-  height: 8px;
+  width: .8em;
+  height: .8em;
   background-color: var(--intenseBlue);
   position: absolute;
-  left: 5px;
-  top: 5px;
+  left: .4em;
+  top: .4em;
   border-radius: 100%;
   transition: transform 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86),
     opacity 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
-
 .radiobox:not(:checked) + label:after{
   opacity: 0;
   transform: scale(0);
 }
-
 .radiobox:checked + label:after {
   opacity: 1;
   transform: scale(1);
 }
-
 .survey__panel__satisfaction label,
 .survey__panel__recommendation label,
 .survey__panel__personaldetails label,
 .survey__panel__hearabout label {
   line-height: 2;
 }
-
 .survey__panel .radiobox {
-  margin-left: 10px;
+  margin-left: .8em;
 }
-
 .survey__panel__personaldetails .form-group {
-  margin: 1rem 0;
+  margin: 1em 0;
 }
-
 .survey__panel__personaldetails .name,
 .survey__panel__personaldetails .email,
 .survey__panel__personaldetails .age {
   display: block;
-  font-size: 0.95rem;
+  font-size: 0.95em;
 }
-
 .survey__panel__personaldetails [name="name"],
 .survey__panel__personaldetails [name="email"],
 .survey__panel__personaldetails [name="country"] {
   width: 100%;
-  padding: 0.6rem 0.75rem;
-  border: 2px solid var(--lightBlue);
-  max-width: 300px;
+  padding: 0.6em 0.75em;
+  border: .2em solid var(--lightBlue);
+  max-width: 18.75em;
   appearance: none;
   -webkit-appearance: none;
 }
-
 .form-buttons {
   width: 100%;
-  margin-top: 30px;
-}
-
-/* .button {
-  display: inline-block;
-  padding: 10px 25px;
-  background-color: var(--btnClr);
-  color: var(--whiteClr);
-  border: 2px solid var(--btnClr);
-  border-radius: 3px;
-  font-size: 0.875rem;
-  font-family: inherit;
-  cursor: pointer;
-}
-
-.button:hover {
-  --btnHoverClr: #444e83;
-  background-color: var(--btnHoverClr);
-  border-color: var(--btnHoverClr);
-} */
-
-footer {
-  text-align: center;
-  color: var(--whiteClr);
+  margin-top: 1.5em;
 }
 
 /* ================================= 
-  Media Queries
+footer styling
 ==================================== */
-
-@media (min-width: 1025px) {
-  .header {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-@media (min-width: 769px) {
-  .header,
-  nav ul {
-    display: flex;
-  }
-  .header {
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-    margin: 0 auto;
-    max-width: 1150px;
-  }
+footer {
+  text-align: center;
+  color: var(--whiteClr);
 }

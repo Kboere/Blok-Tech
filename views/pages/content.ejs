@@ -1,88 +1,121 @@
 <form action="zoekresultaat" method="post" id="survey-form" class="survey">
+	<h2 class="survey__panel__question"> Wat voor soort car meeting zoek je? </h2>
+	<fieldset class="survey__panel__period">
+		<section class="form-group">
+			<input id="JDM" type="radio" name="soort" value="JDM cars" />
+			<label for="JDM">JDM cars</label>
+		</section>
+		<section class="form-group">
+			<input id="Sportwagen" type="radio" name="soort" value="Sportwagen" />
+			<label for="Sportwagen">Sportwagen</label>
+		</section>
+		<section class="form-group">
+			<input id="Supercar" type="radio" name="soort" value="Supercar" />
+			<label for="Supercar">Supercar</label>
+		</section>
+	</fieldset>
 
-    <h2 class="survey__panel__question">
-      Wat voor soort car meeting zoek je?
-    </h2>
-    <div class="survey__panel__period">
-      <div class="form-group">
-        <input  type="radio" name="soort" value="JDM cars" />
-        <label for="lessthenoneyear">JDM cars</label>
-      </div>
-      <div class="form-group">
-        <input type="radio" name="soort" value="Sportwagen" />
-        <label for="onetotwoyears">Sportwagen</label>
-      </div>
-      <div class="form-group">
-        <input id="morethentwoyears" type="radio" name="soort" value="Supercar" />
-        <label for="morethentwoyears">Supercar</label>
-      </div>
-    </div>
+	<h2 class="survey__panel__question"> Hoe groot moet de meeting zijn? </h2>
+	<fieldset class="survey__panel__satisfaction">
+		<section class="form-group">
+			<input
+				id="low-gr"
+				type="radio"
+				class="radiobox"
+				name="grootte"
+				value="30"
+			/>
+			<label for="low">1 - 30</label>
+		</section>
+		<section class="form-group">
+			<input
+				id="mid-gr"
+				type="radio"
+				class="radiobox"
+				name="grootte"
+				value="60"
+			/>
+			<label for="mid">30 - 60</label>
+		</section>
+		<section class="form-group">
+			<input
+				id="high-gr"
+				type="radio"
+				class="radiobox"
+				name="grootte"
+				value="999"
+			/>
+			<label for="high">Maakt niet uit</label>
+		</section>
+	</fieldset>
 
-    <h2 class="survey__panel__question">
-      Hoe groot moet de meeting zijn?
-    </h2>
-    <div class="survey__panel__satisfaction">
-      <div class="form-group">
-        <input id="notsatified" type="radio" class="radiobox" name="grootte" value="30" />
-        <label for="notsatified">1 - 30</label>
-      </div>
-      <div class="form-group">
-        <input id="quitesatisfied" type="radio" class="radiobox" name="grootte" value="60" />
-        <label for="quitesatisfied">30 - 60</label>
-      </div>
-      <div class="form-group">
-        <input id="completelysatisfied" type="radio" class="radiobox" name="grootte" value="999" />
-        <label for="completelysatisfied">Maakt niet uit</label>
-      </div>
-    </div>
+	<h2 class="survey__panel__question"> Hoe ver wil je reizen? </h2>
+	<fieldset class="survey__panel__hearabout">
+		<section class="form-group">
+			<input
+				id="low-km"
+				type="radio"
+				class="radiobox"
+				name="reistijd"
+				value="25"
+			/>
+			<label for="low-km">1km - 25km</label>
+		</section>
+		<section class="form-group">
+			<input
+				id="mid-km"
+				type="radio"
+				class="radiobox"
+				name="reistijd"
+				value="50"
+			/>
+			<label for="mid-km">1km - 50km </label>
+		</section>
+		<section class="form-group">
+			<input
+				id="high-km"
+				type="radio"
+				class="radiobox"
+				name="reistijd"
+				value="9999999"
+			/>
+			<label for="high-km">Maakt niet uit</label>
+		</section>
+	</fieldset>
 
-    <h2 class="survey__panel__question">
-      Hoe ver wil je reizen?
-    </h2>
-    <div class="survey__panel__hearabout">
-      <div class="form-group">
-        <input type="radio" class="radiobox" id="searchengine" name="reistijd" value="25" />
-        <label for="searchengine">1km - 25km</label>
-      </div>
-      <div class="form-group">
-        <input type="radio" class="radiobox" id="friend" name="reistijd" value="50" />
-        <label for="friend">1km - 50km </label>
-      </div>
-      <div class="form-group">
-        <input type="radio" class="radiobox" id="socialmedia" name="reistijd" value="999" />
-        <label for="socialmedia">Maakt niet uit</label>
-      </div>
-    </div>
+	<h2 class="survey__panel__question"> Vul uw gegevens in </h2>
+	<fieldset class="survey__panel__personaldetails">
+		<section class="form-group">
+			<label for="name" id="name-label" class="name">Naam:</label>
+			<input type="text" id="name" name="name" required placeholder="Uw naam" />
+		</section>
+		<section class="form-group">
+			<label for="email" id="email-label" class="email">Email:</label>
+			<input
+				type="email"
+				id="email"
+				name="email"
+				required
+				placeholder="Jouw e-mailadress"
+			/>
+		</section>
+		<section class="form-group">
+			<select name="country" id="dropdown" name="country">
+				<option value>Jouw land</option>
+				<option value="Belgium">Belgie</option>
+				<option value="France">Frankrijk</option>
+				<option value="Germany">Duitsland</option>
+				<option value="Italy">Italie</option>
+				<option value="Netherlands">Nederland</option>
+				<option value="Spain">Spanje</option>
+				<option value="United Kingdom">Veringd Koninkrijk</option>
+			</select>
+		</section>
+	</fieldset>
 
-    <h2 class="survey__panel__question">
-      Vul uw gegevens in
-    </h2>
-    <div class="survey__panel__personaldetails">
-      <div class="form-group">
-        <label for="name" id="name-label" class="name">Naam:</label>
-        <input type="text" id="name" name="name" required placeholder="Uw naam" />
-      </div>
-      <div class="form-group">
-        <label for="email" id="email-label" class="email">Email:</label>
-        <input type="email" id="email" name="email" required placeholder="Jouw e-mailadress" />
-      </div>
-      <div class="form-group">
-        <select name="country" id="dropdown" name="country">
-          <option value>Jouw land</option>
-          <option value="Belgium">Belgie</option>
-          <option value="France">Frankrijk</option>
-          <option value="Germany">Duitsland</option>
-          <option value="Italy">Italie</option>
-          <option value="Netherlands">Nederland</option>
-          <option value="Spain">Spanje</option>
-          <option value="United Kingdom">Veringd Koninkrijk</option>
-        </select>
-      </div>
-    </div>
-
-  <div class="form-buttons">
-    <button class="button" type="submit" id="submit" name="submit">
-      Submit
-    </button>
-  </div>
+	<fieldset class="form-buttons">
+		<button class="button" type="submit" id="submit" name="submit">
+			Submit
+		</button>
+	</fieldset>
 </form>
